@@ -8,7 +8,7 @@
     <!-- Meta tags for sharing -->
     <meta property="og:title" content="Ethical.Fish">
     <meta property="og:description" content="Ethical Fish is a fully onChain Social Mobile dApp for verified catch and release pro sportfishing.">
-    <meta property="og:image" content="EthicalFishLogo-black.jpg">
+    <meta property="og:image" content="EthicalFishLogo-green.png">
     <meta property="og:url" content="https://ethical.fish">
     <meta name="twitter:card" content="summary_large_image">
 
@@ -95,18 +95,17 @@
         }
 
         .cta-button {
-            background-color: #26776A;
-            color: #EEFFD9;
-            padding: 1rem 2.5rem;
+            background-color: transparent;
             border: none;
             border-radius: 30px;
-            font-size: 1.2rem;
             cursor: pointer;
             transition: all 0.2s ease;
-            font-weight: 500;
             position: relative;
             top: 0;
             z-index: 10;
+            padding: 0;
+            width: 200px; /* Adjust based on your image size */
+            height: 200px; /* Adjust based on your image size */
         }
 
         .cta-button.animate {
@@ -126,7 +125,6 @@
 
         .cta-button:hover {
             transform: scale(1.05);
-            background-color: #1f6358;
         }
 
         @media (max-width: 768px) {
@@ -290,7 +288,7 @@
     <header>
         <div class="logo">
             <a href="/">
-                <img src="EthicalFishLogo-black.jpg" alt="Ethical Fish Logo">
+                <img src="EthicalFishLogo-green.png" alt="Ethical Fish Logo">
             </a>
         </div>
         <div class="social-links">
@@ -302,7 +300,10 @@
         <div class="hero-content">
             <img src="EthicalFishTitle.jpg" alt="Ethical Fish Title">
             <p>An onChain Social Mobile dApp for catch and release sportfishing.</p>
-            <button class="cta-button" onclick="handleButtonClick()">View Project</button>
+            <button class="cta-button" onclick="handleButtonClick()">
+                <img src="EthicalFishCTA-bob.png" alt="View Project" 
+                style="width: 100%; height: 100%; object-fit: contain;">
+            </button>
         </div>
         
         <div class="wave-container">
