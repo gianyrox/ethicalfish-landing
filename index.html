@@ -37,6 +37,7 @@
             align-items: center;
             position: relative;
             z-index: 1;
+            border-bottom: 1px solid rgba(38, 119, 106, 0.2);
         }
 
         .logo img {
@@ -60,20 +61,29 @@
             align-items: center;
             padding: 2rem;
             text-align: center;
-            max-width: 1200px;
-            margin: 0 auto;
-            width: 100%;
+            width: 100vw;
             margin-top: -10vh;
+            position: relative;
+            min-height: calc(100vh - 90px - 50px);
         }
 
-        .hero img {
+        .hero-content {
+            max-width: 1200px;
+            width: 100%;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .hero-content img {
             max-width: 90%;
             height: auto;
             margin-bottom: 2rem;
             object-fit: contain;
         }
 
-        .hero p {
+        .hero-content p {
             color: #26776A;
             font-size: 1.4rem;
             max-width: 100%;
@@ -94,6 +104,24 @@
             cursor: pointer;
             transition: all 0.2s ease;
             font-weight: 500;
+            position: relative;
+            top: 0;
+            z-index: 10;
+        }
+
+        .cta-button.animate {
+            animation: dropAndBounce 1.2s ease-in-out forwards;
+        }
+
+        @keyframes dropAndBounce {
+            0% { transform: translateY(0); }
+            30% { transform: translateY(120px); }
+            45% { transform: translateY(80px); }
+            60% { transform: translateY(100px); }
+            75% { transform: translateY(90px); }
+            85% { transform: translateY(110px); }
+            95% { transform: translateY(115px); }
+            100% { transform: translateY(120px); }
         }
 
         .cta-button:hover {
@@ -121,12 +149,12 @@
                 margin-top: -8vh;
             }
 
-            .hero img {
+            .hero-content img {
                 max-width: 95%;
                 margin-bottom: 1.5rem;
             }
 
-            .hero p {
+            .hero-content p {
                 font-size: 1.2rem;
                 padding: 0 0.8rem;
                 margin-bottom: 1.5rem;
@@ -139,20 +167,131 @@
         }
 
         @media (max-width: 480px) {
-            .hero img {
+            .hero-content img {
                 max-width: 98%;
             }
 
-            .hero p {
+            .hero-content p {
                 font-size: 1.1rem;
             }
+        }
+
+        /* Add these new styles */
+        .wave-container {
+            background-color: #1f6358;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 150px;
+            overflow: hidden;
+            z-index: 0;
+            transform: rotate(180deg);
+        }
+
+        .wave {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 200%;
+            height: 100%;
+            background: url('data:image/svg+xml;utf8,<svg viewBox="0 0 1200 150" xmlns="http://www.w3.org/2000/svg"><path d="M0 150v-57.86c47.79-27.75 103.59-40.21 158-35 70.36 6.71 136.33 41.64 206.8 46.88 73.84 5.45 147.54-21.1 218.2-44.08 69.27-22.5 138.3-31.1 209.4-16.35 36.15 7.5 69.85 22.3 104.45 36.68C989.49 118.75 1113 167.86 1200 84.41V150z" fill="EEFFD9" opacity=".25"/></svg>');
+            background-size: 1200px 150px;
+            animation: wave 20s linear infinite;
+            transform: rotate(180deg);
+        }
+
+        .wave:nth-child(2) {
+            bottom: 0;
+            opacity: 0.5;
+            animation: wave 8s linear infinite;
+        }
+
+        .wave:nth-child(3) {
+            bottom: 0;
+            opacity: 0.2;
+            animation: wave 5s linear infinite;
+        }
+
+        .fish {
+            position: absolute;
+            font-size: 48px;
+            animation: swim 25s linear infinite;
+            color: rgba(116, 238, 159, 0.2);
+            left: -50px;
+            transform-origin: center;
+            transform: rotate(180deg);
+        }
+
+        .fish:nth-child(1) { bottom: 75px; animation-delay: 0s; }
+        .fish:nth-child(2) { bottom: 50px; animation-delay: -6s; }
+        .fish:nth-child(3) { bottom: 100px; animation-delay: -12s; }
+        .fish:nth-child(4) { bottom: 37px; animation-delay: -18s; }
+
+        @keyframes wave {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        @keyframes swim {
+            0% {
+                left: -50px;
+                transform: scaleX(-1) translateY(0) rotate(0deg);
+            }
+            25% {
+                transform: scaleX(-1) translateY(-15px) rotate(-5deg);
+            }
+            45% {
+                transform: scaleX(-1) translateY(10px) rotate(5deg);
+            }
+            50% {
+                left: calc(100% + 50px);
+                transform: scaleX(-1) translateY(0) rotate(0deg);
+            }
+            50.01% {
+                transform: scaleX(1) translateY(0) rotate(0deg);
+            }
+            75% {
+                transform: scaleX(1) translateY(-15px) rotate(-5deg);
+            }
+            95% {
+                transform: scaleX(1) translateY(10px) rotate(5deg);
+            }
+            100% {
+                left: -50px;
+                transform: scaleX(1) translateY(0) rotate(0deg);
+            }
+        }
+
+        footer {
+            text-align: center;
+            padding: 1rem;
+            background-color: #1f6358;
+            color: #EEFFD9;
+            position: relative;
+            width: 100%;
+            z-index: 1;
+        }
+
+        footer a {
+            color: #EEFFD9;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: opacity 0.2s ease;
+        }
+
+        footer a:hover {
+            opacity: 0.8;
         }
     </style>
 </head>
 <body>
     <header>
         <div class="logo">
-            <img src="public/images/EthicalFishLogo-black.png" alt="Ethical Fish Logo">
+            <a href="/">
+                <img src="public/images/EthicalFishLogo-black.png" alt="Ethical Fish Logo">
+            </a>
         </div>
         <div class="social-links">
             <a href="https://twitter.com/ethical_fish" target="_blank">DevFolio</a>
@@ -160,9 +299,37 @@
     </header>
 
     <main class="hero">
-        <img src="public/images/EthicalFishTitle.png" alt="Ethical Fish Title">
-        <p>An onChain Social Mobile dApp for catch and release sportfishing.</p>
-        <button class="cta-button">View Project</button>
+        <div class="hero-content">
+            <img src="public/images/EthicalFishTitle.png" alt="Ethical Fish Title">
+            <p>An onChain Social Mobile dApp for catch and release sportfishing.</p>
+            <button class="cta-button" onclick="handleButtonClick()">View Project</button>
+        </div>
+        
+        <div class="wave-container">
+            <div class="wave"></div>
+            <div class="wave"></div>
+            <div class="wave"></div>
+            <span class="fish">🐟</span>
+            <span class="fish">🐟</span>
+            <span class="fish">🐟</span>
+            <span class="fish">🐟</span>
+        </div>
     </main>
+
+    <footer>
+        <a href="https://derby.fish" target="_blank">Built for Derby.Fish</a>
+    </footer>
+
+    <script>
+        function handleButtonClick() {
+            const button = document.querySelector('.cta-button');
+            button.classList.add('animate');
+            
+            // Wait for animation to complete before redirecting
+            setTimeout(() => {
+                window.location.href = '/project.html';
+            }, 800);
+        }
+    </script>
 </body>
 </html>
