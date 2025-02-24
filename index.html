@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ethical.Fish - OnChain Social Mobile dApp for Verified Catch and Release</title>
+    
+    <!-- Meta tags for sharing -->
+    <meta property="og:title" content="Ethical.Fish">
+    <meta property="og:description" content="Ethical Fish is a fully onChain Social Mobile dApp for verified catch and release pro sportfishing.">
+    <meta property="og:image" content="/public/images/EthicalFishLogo.png">
+    <meta property="og:url" content="https://ethical.fish">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #EEFFD9;
+            font-family: Arial, sans-serif;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+
+        header {
+            background-color: #26776A;
+            padding: 1rem 2rem;
+            height: 80px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo img {
+            height: 50px;
+            width: auto;
+        }
+
+        .social-links a {
+            color: #EEFFD9;
+            text-decoration: none;
+            margin-left: 1.5rem;
+            font-size: 1.2rem;
+        }
+
+        .hero {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .hero img {
+            max-width: 80%;
+            height: auto;
+            margin-bottom: 2rem;
+        }
+
+        .hero p {
+            color: #26776A;
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+
+        .cta-button {
+            background-color: #26776A;
+            color: #EEFFD9;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 30px;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+
+        .cta-button:hover {
+            transform: scale(1.05);
+        }
+
+        @media (max-width: 768px) {
+            header {
+                padding: 1rem;
+            }
+
+            .logo img {
+                height: 40px;
+            }
+
+            .social-links a {
+                margin-left: 1rem;
+                font-size: 1rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+                padding: 0 1rem;
+            }
+
+            .cta-button {
+                padding: 0.8rem 1.6rem;
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="/public/images/EthicalFishLogo.png" alt="Ethical Fish Logo">
+        </div>
+        <div class="social-links">
+            <a href="https://twitter.com/ethical_fish" target="_blank">Twitter</a>
+            <a href="https://discord.gg/ethicalfish" target="_blank">Discord</a>
+        </div>
+    </header>
+
+    <main class="hero">
+        <img src="/public/images/EthicalFishTitle.png" alt="Ethical Fish Title">
+        <p>Ethical Fish is a fully onChain Social Mobile dApp for verified catch and release pro sportfishing.</p>
+        <button class="cta-button">Join Now</button>
+    </main>
+</body>
+</html>
