@@ -126,7 +126,257 @@
         </div>
         <div class="social-links">
             <a href="/demo.html">Demo</a>
-            <a href="https://twitter.com/ethical_fish" target="_blank">DevFolio</a>
+            <a href="// @generated automatically by Diesel CLI.
+
+diesel::table! {
+    address (id) {
+        id -> Uuid,
+        created_at -> Timestamptz,
+        address_line -> Nullable<Text>,
+        city -> Nullable<Text>,
+        state -> Nullable<Text>,
+        zip -> Nullable<Text>,
+        coordinates -> Nullable<Json>,
+    }
+}
+
+diesel::table! {
+    availability (id) {
+        id -> Uuid,
+        created_at -> Timestamptz,
+        start_date -> Date,
+        end_date -> Date,
+        instructor_id -> Uuid,
+        timerange -> Text,
+        color -> Text,
+    }
+}
+
+diesel::table! {
+    booking (id) {
+        id -> Uuid,
+        created_at -> Timestamptz,
+        instructor_id -> Uuid,
+        client_id -> Uuid,
+        start_date -> Date,
+        timerange -> Text,
+        end_date -> Date,
+        booking_status -> Text,
+        address_id -> Nullable<Uuid>,
+    }
+}
+
+diesel::table! {
+    business (id) {
+        id -> Uuid,
+        created_at -> Timestamptz,
+        title -> Text,
+        nickname -> Text,
+        email -> Text,
+        website_id -> Nullable<Uuid>,
+    }
+}
+
+diesel::table! {
+    client (id) {
+        id -> Uuid,
+        created_at -> Timestamptz,
+        identity_id -> Uuid,
+        business_id -> Uuid,
+    }
+}
+
+diesel::table! {
+    client_student (id) {
+        id -> Uuid,
+        created_at -> Timestamptz,
+        client_id -> Uuid,
+        student_id -> Uuid,
+    }
+}
+
+diesel::table! {
+    form (id) {
+        id -> Uuid,
+        created_at -> Timestamptz,
+        business_id -> Uuid,
+        title -> Text,
+        theme_id -> Uuid,
+        description -> Nullable<Text>,
+        form_options -> Nullable<Text>,
+    }
+}
+
+diesel::table! {
+    form_identity (id) {
+        created_at -> Timestamptz,
+        identity_id -> Nullable<Uuid>,
+        form_id -> Nullable<Uuid>,
+        id -> Uuid,
+    }
+}
+
+diesel::table! {
+    form_question (id) {
+        id -> Uuid,
+        created_at -> Timestamptz,
+        form_id -> Uuid,
+        question_id -> Uuid,
+        question_index -> Int2,
+        required -> Bool,
+    }
+}
+
+diesel::table! {
+    identity (id) {
+        id -> Uuid,
+        created_at -> Timestamptz,
+        first_name -> Text,
+        last_name -> Text,
+        email -> Text,
+        phone -> Text,
+        address_id -> Nullable<Uuid>,
+        metadata -> Text,
+    }
+}
+
+diesel::table! {
+    identity_address (id) {
+        created_at -> Timestamptz,
+        identity_id -> Uuid,
+        address_id -> Uuid,
+        id -> Uuid,
+    }
+}
+
+diesel::table! {
+    instructor (id) {
+        id -> Uuid,
+        created_at -> Timestamptz,
+        business_id -> Uuid,
+        identity_id -> Uuid,
+    }
+}
+
+diesel::table! {
+    media (id) {
+        id -> Uuid,
+        created_at -> Timestamptz,
+        data -> Nullable<Text>,
+    }
+}
+
+diesel::table! {
+    product (id) {
+        id -> Uuid,
+        created_at -> Timestamptz,
+        title -> Text,
+        description -> Text,
+        price -> Int8,
+        payment_type -> Text,
+        booking_length -> Int8,
+        schedule_pattern -> Text,
+        business_id -> Uuid,
+    }
+}
+
+diesel::table! {
+    question (id) {
+        id -> Uuid,
+        created_at -> Timestamptz,
+        as_text -> Text,
+        response_type -> Text,
+        response_options -> Nullable<Text>,
+        question_options -> Nullable<Text>,
+    }
+}
+
+diesel::table! {
+    response (id) {
+        id -> Uuid,
+        created_at -> Timestamptz,
+        question_id -> Uuid,
+        identity_id -> Uuid,
+        response_type -> Text,
+        response_data -> Text,
+    }
+}
+
+diesel::table! {
+    student (id) {
+        created_at -> Timestamptz,
+        first_name -> Nullable<Text>,
+        last_name -> Nullable<Text>,
+        id -> Uuid,
+    }
+}
+
+diesel::table! {
+    student_booking (id) {
+        created_at -> Timestamptz,
+        booking_id -> Uuid,
+        id -> Uuid,
+        student_id -> Nullable<Uuid>,
+    }
+}
+
+diesel::table! {
+    theme (id) {
+        id -> Uuid,
+        created_at -> Timestamptz,
+        background -> Text,
+        foreground -> Text,
+        accent -> Text,
+    }
+}
+
+diesel::joinable!(availability -> instructor (instructor_id));
+diesel::joinable!(booking -> address (address_id));
+diesel::joinable!(booking -> client (client_id));
+diesel::joinable!(booking -> instructor (instructor_id));
+diesel::joinable!(business -> media (website_id));
+diesel::joinable!(client -> business (business_id));
+diesel::joinable!(client -> identity (identity_id));
+diesel::joinable!(client_student -> client (client_id));
+diesel::joinable!(client_student -> student (student_id));
+diesel::joinable!(form -> business (business_id));
+diesel::joinable!(form -> theme (theme_id));
+diesel::joinable!(form_identity -> form (form_id));
+diesel::joinable!(form_identity -> identity (identity_id));
+diesel::joinable!(form_question -> form (form_id));
+diesel::joinable!(form_question -> question (question_id));
+diesel::joinable!(identity -> address (address_id));
+diesel::joinable!(identity_address -> address (address_id));
+diesel::joinable!(identity_address -> identity (identity_id));
+diesel::joinable!(instructor -> business (business_id));
+diesel::joinable!(instructor -> identity (identity_id));
+diesel::joinable!(product -> business (business_id));
+diesel::joinable!(response -> identity (identity_id));
+diesel::joinable!(response -> question (question_id));
+diesel::joinable!(student_booking -> booking (booking_id));
+diesel::joinable!(student_booking -> student (student_id));
+
+diesel::allow_tables_to_appear_in_same_query!(
+    address,
+    availability,
+    booking,
+    business,
+    client,
+    client_student,
+    form,
+    form_identity,
+    form_question,
+    identity,
+    identity_address,
+    instructor,
+    media,
+    product,
+    question,
+    response,
+    student,
+    student_booking,
+    theme,
+);" target="_blank">DevFolio</a>
         </div>
     </header>
 
