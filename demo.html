@@ -1,1 +1,148 @@
- 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ethical.Fish Demo - OnChain Social Mobile dApp for Verified Catch and Release</title>
+    
+    <!-- Meta tags for sharing -->
+    <meta property="og:title" content="Ethical.Fish Demo">
+    <meta property="og:description" content="Ethical Fish is a fully onChain Social Mobile dApp for verified catch and release pro sportfishing.">
+    <meta property="og:image" content="EthicalFishLogo.jpg">
+    <meta property="og:url" content="https://ethical.fish/demo">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #EEFFD9;
+            font-family: Arial, sans-serif;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            overflow-x: hidden;
+        }
+
+        header {
+            background-color: #EEFFD9;
+            padding: 1rem 2rem;
+            height: 90px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+            border-bottom: 1px solid rgba(38, 119, 106, 0.2);
+        }
+
+        .logo img {
+            height: 60px;
+            width: auto;
+        }
+
+        .social-links a {
+            color: #26776A;
+            text-decoration: none;
+            margin-left: 1.5rem;
+            font-size: 1.3rem;
+            font-weight: 600;
+        }
+
+        main {
+            flex: 1;
+            padding: 2rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .video-container {
+            width: 98%;
+            max-width: 1000px;
+            aspect-ratio: 9/16;
+            margin: 0 auto;
+        }
+
+        iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        footer {
+            text-align: center;
+            padding: 1rem;
+            background-color: #1f6358;
+            color: #EEFFD9;
+            position: relative;
+            width: 100%;
+            z-index: 1;
+        }
+
+        footer a {
+            color: #EEFFD9;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: opacity 0.2s ease;
+        }
+
+        footer a:hover {
+            opacity: 0.8;
+        }
+
+        @media (max-width: 768px) {
+            header {
+                padding: 0.8rem;
+                height: 80px;
+            }
+
+            .logo img {
+                height: 50px;
+            }
+
+            .social-links a {
+                margin-left: 1rem;
+                font-size: 1.15rem;
+            }
+
+            main {
+                padding: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <a href="/">
+                <img src="EthicalFishLogo-black.jpg" alt="Ethical Fish Logo">
+            </a>
+        </div>
+        <div class="social-links">
+            <a href="/demo.html">Demo</a>
+            <a href="https://twitter.com/ethical_fish" target="_blank">DevFolio</a>
+        </div>
+    </header>
+
+    <main>
+        <div class="video-container">
+            <iframe 
+                src="https://www.youtube.com/embed/JHAZ4RRR-Gc"
+                title="Ethical Fish Demo"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen>
+            </iframe>
+        </div>
+    </main>
+
+    <footer>
+        <a href="https://derby.fish" target="_blank">Built for Derby.Fish</a>
+    </footer>
+</body>
+</html> 
